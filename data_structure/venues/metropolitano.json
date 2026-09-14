@@ -6,17 +6,17 @@
   "address": {
     "street": "Av. de Luis Aragonés, 4",
     "city": "Madrid",
-    "postalCode": "28022"
+    "postal_code": "28022"
   },
   "location": {
     "type": "Point",
     "coordinates": [-3.5995, 40.4362]
   },
-  "defaultAffectedStreets": [
+  "affected_streets": [
     "Av. de Luis Aragonés",
     "Acceso M-40",
     "Av. de Arcentales"
   ],
-  "createdAt": "2026-08-29T13:00:00Z",
-  "updatedAt": "2026-08-29T13:00:00Z"
+  "created_at": "2026-08-29T13:00:00Z",
+  "updated_at": "2026-08-29T13:00:00Z"
 }

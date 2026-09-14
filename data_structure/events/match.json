@@ -2,14 +2,14 @@
   "_id": "66d0c1e5f8a123456789abcd",
   "title": "Ateltico de Madrid vs Real Madrid",
   "category": "FOOTBALL",
-  "startTime": "2026-09-27T19:00:00Z",
-  "endTime": "2026-09-27T23:00:00Z",
-  "imageUrl": "https://foto",
-  "venueId": "venue_metropolitano_madrid",
+  "start_time": "2026-09-27T19:00:00Z",
+  "end_time": "2026-09-27T23:00:00Z",
+  "image_url": "https://foto",
+  "venue_id": "venue_metropolitano_madrid",
   "details": {
     "competition": "LaLiga",
-    "matchDay": "12",
-    "homeTeam": "Ateltico de Madrid",
-    "awayTeam": "Real Madrid"
+    "match_day": "12",
+    "homet_team": "Ateltico de Madrid",
+    "away_team": "Real Madrid"
   }
 }
