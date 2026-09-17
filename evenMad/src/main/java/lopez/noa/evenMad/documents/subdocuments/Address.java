@@ -1,14 +1,14 @@
 package lopez.noa.evenMad.documents.subdocuments;
 
-public class Adress {
+public class Address {
     private String street;
     private String city;
     private int postalCode;
 
-    public Adress() {
+    public Address() {
     }
 
-    public Adress(String street, String city, int postalCode) {
+    public Address(String street, String city, int postalCode) {
         this.street = street;
         this.city = city;
         this.postalCode = postalCode;

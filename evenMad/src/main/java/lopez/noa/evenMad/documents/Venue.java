@@ -1,6 +1,6 @@
 package lopez.noa.evenMad.documents;
 
-import lopez.noa.evenMad.documents.subdocuments.Adress;
+import lopez.noa.evenMad.documents.subdocuments.Address;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.geo.GeoJsonPoint;
 import org.springframework.data.mongodb.core.index.GeoSpatialIndexType;
@@ -30,12 +30,12 @@ public class Venue {
     @GeoSpatialIndexed(type = GeoSpatialIndexType.GEO_2DSPHERE)
     private GeoJsonPoint location;
 
-    private Adress address;
+    private Address address;
 
     public Venue() {
     }
 
-    public Venue(String id, String name, String slug, int capacity, List<String> affectedStreets, GeoJsonPoint location, Adress address) {
+    public Venue(String id, String name, String slug, int capacity, List<String> affectedStreets, GeoJsonPoint location, Address address) {
         this.id = id;
         this.name = name;
         this.slug = slug;
@@ -93,11 +93,11 @@ public class Venue {
         this.location = location;
     }
 
-    public Adress getAddress() {
+    public Address getAddress() {
         return address;
     }
 
-    public void setAddress(Adress address) {
+    public void setAddress(Address address) {
         this.address = address;
     }
 }
