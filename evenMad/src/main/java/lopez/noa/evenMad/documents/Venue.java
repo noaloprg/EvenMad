@@ -3,6 +3,9 @@ package lopez.noa.evenMad.documents;
 import lopez.noa.evenMad.documents.subdocuments.Adress;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.geo.GeoJsonPoint;
+import org.springframework.data.mongodb.core.index.GeoSpatialIndexType;
+import org.springframework.data.mongodb.core.index.GeoSpatialIndexed;
+import org.springframework.data.mongodb.core.index.TextIndexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.List;
@@ -13,6 +16,8 @@ public class Venue {
     @Id
     private String id;
 
+    // To allow text search
+    @TextIndexed
     private String name;
 
     private String slug;
@@ -22,21 +27,22 @@ public class Venue {
     // List of street names
     private List<String> affectedStreets;
 
+    @GeoSpatialIndexed(type = GeoSpatialIndexType.GEO_2DSPHERE)
     private GeoJsonPoint location;
 
-    private Adress adress;
+    private Adress address;
 
     public Venue() {
     }
 
-    public Venue(String id, String name, String slug, int capacity, List<String> affectedStreets, GeoJsonPoint location, Adress adress) {
+    public Venue(String id, String name, String slug, int capacity, List<String> affectedStreets, GeoJsonPoint location, Adress address) {
         this.id = id;
         this.name = name;
         this.slug = slug;
         this.capacity = capacity;
         this.affectedStreets = affectedStreets;
         this.location = location;
-        this.adress = adress;
+        this.address = address;
     }
 
     public String getId() {
@@ -87,11 +93,11 @@ public class Venue {
         this.location = location;
     }
 
-    public Adress getAdress() {
-        return adress;
+    public Adress getAddress() {
+        return address;
     }
 
-    public void setAdress(Adress adress) {
-        this.adress = adress;
+    public void setAddress(Adress address) {
+        this.address = address;
     }
 }
