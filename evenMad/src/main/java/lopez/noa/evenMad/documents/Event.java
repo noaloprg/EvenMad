@@ -2,6 +2,7 @@ package lopez.noa.evenMad.documents;
 
 import lopez.noa.evenMad.documents.subdocuments.Details;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.index.CompoundIndex;
 import org.springframework.data.mongodb.core.index.IndexDirection;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.index.TextIndexed;
@@ -11,6 +12,9 @@ import org.springframework.data.mongodb.core.mapping.DocumentReference;
 import java.time.LocalDateTime;
 
 @Document(collection = "events")
+// Index for each category and times
+// Descending to have first the events happening nearer the actual day
+@CompoundIndex(def = "{´category´: 1, 'startTime': -1}", name = "category_starttime_idx")
 public class Event {
 
     @Id
@@ -20,7 +24,6 @@ public class Event {
     @TextIndexed
     private String title;
 
-    // Descending to have first the events happening nearer the actual day
     @Indexed(direction = IndexDirection.DESCENDING)
     private LocalDateTime startTime;
 
