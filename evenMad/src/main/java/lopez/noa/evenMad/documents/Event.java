@@ -2,6 +2,9 @@ package lopez.noa.evenMad.documents;
 
 import lopez.noa.evenMad.documents.subdocuments.Details;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.index.IndexDirection;
+import org.springframework.data.mongodb.core.index.Indexed;
+import org.springframework.data.mongodb.core.index.TextIndexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.DocumentReference;
 
@@ -13,8 +16,12 @@ public class Event {
     @Id
     private String id;
 
+    // For possible text search
+    @TextIndexed
     private String title;
 
+    // Descending to have first the events happening nearer the actual day
+    @Indexed(direction = IndexDirection.DESCENDING)
     private LocalDateTime startTime;
 
     private LocalDateTime endTime;
@@ -22,6 +29,7 @@ public class Event {
     private String imageUrl;
 
     @DocumentReference
+    @Indexed
     private Venue venue;
 
     /**
@@ -29,10 +37,12 @@ public class Event {
      */
     private Details details;
 
+    private Category category;
+
     public Event() {
     }
 
-    public Event(String id, String title, LocalDateTime startTime, LocalDateTime endTime, String imageUrl, Venue venue, Details details) {
+    public Event(String id, String title, LocalDateTime startTime, LocalDateTime endTime, String imageUrl, Venue venue, Details details, Category category) {
         this.id = id;
         this.title = title;
         this.startTime = startTime;
@@ -40,6 +50,7 @@ public class Event {
         this.imageUrl = imageUrl;
         this.venue = venue;
         this.details = details;
+        this.category = category;
     }
 
     public String getId() {
@@ -96,5 +107,13 @@ public class Event {
 
     public void setDetails(Details details) {
         this.details = details;
+    }
+
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
     }
 }
