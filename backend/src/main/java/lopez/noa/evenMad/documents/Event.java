@@ -1,5 +1,7 @@
 package lopez.noa.evenMad.documents;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import lopez.noa.evenMad.constants.AppConstants;
 import lopez.noa.evenMad.documents.subdocuments.Details;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.CompoundIndex;
@@ -25,6 +27,7 @@ public class Event {
     private String title;
 
     @Indexed(direction = IndexDirection.DESCENDING)
+    @JsonFormat(pattern = AppConstants.DATE_TIME_JSON_PATTERN)
     private LocalDateTime startTime;
 
     private LocalDateTime endTime;
