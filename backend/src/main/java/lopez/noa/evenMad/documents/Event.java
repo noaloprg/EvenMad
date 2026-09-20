@@ -30,6 +30,7 @@ public class Event {
     @JsonFormat(pattern = AppConstants.DATE_TIME_JSON_PATTERN)
     private LocalDateTime startTime;
 
+    @JsonFormat(pattern = AppConstants.DATE_TIME_JSON_PATTERN)
     private LocalDateTime endTime;
 
     private String imageUrl;
