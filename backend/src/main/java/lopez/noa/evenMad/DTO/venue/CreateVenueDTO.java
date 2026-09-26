@@ -5,7 +5,7 @@ import org.springframework.data.mongodb.core.geo.GeoJsonPoint;
 
 import java.util.List;
 
-public record VenueCreateDTO(
+public record CreateVenueDTO(
         String name,
         int capacity,
         List<String> affectedAreas,
