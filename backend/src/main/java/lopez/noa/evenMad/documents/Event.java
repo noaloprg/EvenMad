@@ -1,5 +1,7 @@
 package lopez.noa.evenMad.documents;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import lopez.noa.evenMad.constants.AppConstants;
 import lopez.noa.evenMad.documents.subdocuments.Details;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.CompoundIndex;
@@ -24,9 +26,14 @@ public class Event {
     @TextIndexed
     private String title;
 
+    @Indexed(unique = true)
+    private String slug;
+
     @Indexed(direction = IndexDirection.DESCENDING)
+    @JsonFormat(pattern = AppConstants.DATE_TIME_JSON_PATTERN)
     private LocalDateTime startTime;
 
+    @JsonFormat(pattern = AppConstants.DATE_TIME_JSON_PATTERN)
     private LocalDateTime endTime;
 
     private String imageUrl;
@@ -45,7 +52,7 @@ public class Event {
     public Event() {
     }
 
-    public Event(String id, String title, LocalDateTime startTime, LocalDateTime endTime, String imageUrl, Venue venue, Details details, Category category) {
+    public Event(String id, String title, LocalDateTime startTime, LocalDateTime endTime, String imageUrl, Venue venue, Details details, Category category, String slug) {
         this.id = id;
         this.title = title;
         this.startTime = startTime;
@@ -54,6 +61,7 @@ public class Event {
         this.venue = venue;
         this.details = details;
         this.category = category;
+        this.slug = slug;
     }
 
     public String getId() {
@@ -118,5 +126,13 @@ public class Event {
 
     public void setCategory(Category category) {
         this.category = category;
+    }
+
+    public String getSlug() {
+        return slug;
+    }
+
+    public void setSlug(String slug) {
+        this.slug = slug;
     }
 }
