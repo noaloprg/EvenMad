@@ -1,6 +1,6 @@
 package lopez.noa.evenMad.services;
 
-import lopez.noa.evenMad.DTO.venue.ResponseVenueDTO;
+import lopez.noa.evenMad.DTO.response.ResponseVenueDTO;
 import lopez.noa.evenMad.documents.Venue;
 import lopez.noa.evenMad.mappers.VenueMapper;
 import lopez.noa.evenMad.repositories.VenueRepository;

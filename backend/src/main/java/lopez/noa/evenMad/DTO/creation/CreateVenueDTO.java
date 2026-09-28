@@ -1,4 +1,4 @@
-package lopez.noa.evenMad.DTO.venue;
+package lopez.noa.evenMad.DTO.creation;
 
 import lopez.noa.evenMad.documents.subdocuments.Address;
 import org.springframework.data.mongodb.core.geo.GeoJsonPoint;

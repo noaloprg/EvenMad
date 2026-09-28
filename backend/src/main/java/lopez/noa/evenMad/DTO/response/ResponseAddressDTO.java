@@ -1,4 +1,4 @@
-package lopez.noa.evenMad.DTO.subdocuments;
+package lopez.noa.evenMad.DTO.response;
 
 public record ResponseAddressDTO(
         String street,
