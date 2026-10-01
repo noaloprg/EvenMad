@@ -1,6 +1,6 @@
 package lopez.noa.evenMad.DTO.creation.details;
 
-public class CreateMatchDetailsDTO {
+public class CreateMatchDetailsDTO  extends  CreateDetailsDTO{
     private String competition;
     private int matchDay;
     private String homeTeam;
