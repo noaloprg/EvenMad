@@ -6,6 +6,16 @@ public class ResponseMatchDetailsDTO extends ResponseDetailsDTO {
     private String homeTeam;
     private String awayTeam;
 
+    public ResponseMatchDetailsDTO(String competition, int matchDay, String homeTeam, String awayTeam) {
+        this.competition = competition;
+        this.matchDay = matchDay;
+        this.homeTeam = homeTeam;
+        this.awayTeam = awayTeam;
+    }
+
+    public ResponseMatchDetailsDTO() {
+    }
+
     public String getCompetition() {
         return competition;
     }

@@ -5,6 +5,14 @@ public class CreateConcertDetailsDTO extends CreateDetailsDTO {
     private String artist;
     private String tour;
 
+    public CreateConcertDetailsDTO(String artist, String tour) {
+        this.artist = artist;
+        this.tour = tour;
+    }
+
+    public CreateConcertDetailsDTO() {
+    }
+
     public String getArtist() {
         return artist;
     }

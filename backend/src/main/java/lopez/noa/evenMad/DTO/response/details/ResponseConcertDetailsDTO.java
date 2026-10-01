@@ -4,6 +4,14 @@ public class ResponseConcertDetailsDTO extends ResponseDetailsDTO {
     private String artist;
     private String tour;
 
+    public ResponseConcertDetailsDTO(String artist, String tour) {
+        this.artist = artist;
+        this.tour = tour;
+    }
+
+    public ResponseConcertDetailsDTO() {
+    }
+
     public String getArtist() {
         return artist;
     }
