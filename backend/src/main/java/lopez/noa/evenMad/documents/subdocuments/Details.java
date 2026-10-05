@@ -14,5 +14,7 @@ import lopez.noa.evenMad.documents.Category;
         @JsonSubTypes.Type(value = MatchDetails.class, name = Category.MATCH_TYPE)
 })
 public abstract class Details {
+    // method that returns the title depending on the specific fields
+    public abstract String getTitle();
 }
 

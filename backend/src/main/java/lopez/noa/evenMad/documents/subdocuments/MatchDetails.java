@@ -49,4 +49,10 @@ public class MatchDetails extends Details {
     public void setAwayTeam(String awayTeam) {
         this.awayTeam = awayTeam;
     }
+
+    @Override
+    public String getTitle() {
+        // Example: Real Madrid vs Atletico Madrid
+        return String.format("%s vs %s", homeTeam, awayTeam);
+    }
 }

@@ -27,4 +27,10 @@ public class ConcertDetails extends Details {
     public void setTour(String tour) {
         this.tour = tour;
     }
+
+    @Override
+    public String getTitle() {
+        // Example: The Weekend - After Hours
+        return String.format("%s - %s", artist, tour);
+    }
 }
