@@ -2,6 +2,7 @@ package lopez.noa.evenMad.documents.subdocuments;
 
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
+import lopez.noa.evenMad.documents.Category;
 
 @JsonTypeInfo(
         use = JsonTypeInfo.Id.NAME,
@@ -9,9 +10,11 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
 )
 
 @JsonSubTypes({
-        @JsonSubTypes.Type(value = ConcertDetails.class, name = "CONCERT"),
-        @JsonSubTypes.Type(value = MatchDetails.class, name = "MATCH")
+        @JsonSubTypes.Type(value = ConcertDetails.class, name = Category.CONCERT_TYPE),
+        @JsonSubTypes.Type(value = MatchDetails.class, name = Category.MATCH_TYPE)
 })
 public abstract class Details {
+    // method that returns the title depending on the specific fields
+    public abstract String getTitle();
 }
 

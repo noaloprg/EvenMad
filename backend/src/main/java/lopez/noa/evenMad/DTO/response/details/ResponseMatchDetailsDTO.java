@@ -1,21 +1,19 @@
-package lopez.noa.evenMad.documents.subdocuments;
+package lopez.noa.evenMad.DTO.response.details;
 
-public class MatchDetails extends Details {
-
+public class ResponseMatchDetailsDTO extends ResponseDetailsDTO {
     private String competition;
     private int matchDay;
     private String homeTeam;
     private String awayTeam;
 
-
-    public MatchDetails() {
-    }
-
-    public MatchDetails(String competition, int matchDay, String homeTeam, String awayTeam) {
+    public ResponseMatchDetailsDTO(String competition, int matchDay, String homeTeam, String awayTeam) {
         this.competition = competition;
         this.matchDay = matchDay;
         this.homeTeam = homeTeam;
         this.awayTeam = awayTeam;
+    }
+
+    public ResponseMatchDetailsDTO() {
     }
 
     public String getCompetition() {
@@ -48,11 +46,5 @@ public class MatchDetails extends Details {
 
     public void setAwayTeam(String awayTeam) {
         this.awayTeam = awayTeam;
-    }
-
-    @Override
-    public String getTitle() {
-        // Example: Real Madrid vs Atletico Madrid
-        return String.format("%s vs %s", homeTeam, awayTeam);
     }
 }

@@ -47,12 +47,11 @@ public class Event {
      */
     private Details details;
 
-    private Category category;
 
     public Event() {
     }
 
-    public Event(String id, String title, LocalDateTime startTime, LocalDateTime endTime, String imageUrl, Venue venue, Details details, Category category, String slug) {
+    public Event(String id, String title, LocalDateTime startTime, LocalDateTime endTime, String imageUrl, Venue venue, Details details, String slug) {
         this.id = id;
         this.title = title;
         this.startTime = startTime;
@@ -60,7 +59,6 @@ public class Event {
         this.imageUrl = imageUrl;
         this.venue = venue;
         this.details = details;
-        this.category = category;
         this.slug = slug;
     }
 
@@ -118,14 +116,6 @@ public class Event {
 
     public void setDetails(Details details) {
         this.details = details;
-    }
-
-    public Category getCategory() {
-        return category;
-    }
-
-    public void setCategory(Category category) {
-        this.category = category;
     }
 
     public String getSlug() {

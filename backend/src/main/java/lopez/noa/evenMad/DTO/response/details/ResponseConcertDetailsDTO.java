@@ -1,15 +1,15 @@
-package lopez.noa.evenMad.documents.subdocuments;
+package lopez.noa.evenMad.DTO.response.details;
 
-public class ConcertDetails extends Details {
+public class ResponseConcertDetailsDTO extends ResponseDetailsDTO {
     private String artist;
     private String tour;
 
-    public ConcertDetails() {
-    }
-
-    public ConcertDetails(String artist, String tour) {
+    public ResponseConcertDetailsDTO(String artist, String tour) {
         this.artist = artist;
         this.tour = tour;
+    }
+
+    public ResponseConcertDetailsDTO() {
     }
 
     public String getArtist() {
@@ -27,10 +27,4 @@ public class ConcertDetails extends Details {
     public void setTour(String tour) {
         this.tour = tour;
     }
-
-    @Override
-    public String getTitle() {
-        // Example: The Weekend - After Hours
-        return String.format("%s - %s", artist, tour);
-    }
-}
+};

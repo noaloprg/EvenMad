@@ -1,4 +1,4 @@
-package lopez.noa.evenMad.DTO;
+package lopez.noa.evenMad.DTO.response;
 
 import java.time.LocalDateTime;
 
