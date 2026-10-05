@@ -9,6 +9,7 @@ import lopez.noa.evenMad.helpers.SlugHelper;
 public class EventMapper {
 
 
+    // Creates an object Event from the basic CreateDTO
     public static Event fromCreateDtoToEvent(CreateEventDTO dto) {
         Event event = new Event();
 
@@ -25,6 +26,7 @@ public class EventMapper {
         return event;
     }
 
+    // Returns a ResponseDTO from an object event
     public static ResponseEventDTO toResponseDTO(Event event) {
         return new ResponseEventDTO(
                 event.getId(),

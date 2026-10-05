@@ -18,7 +18,7 @@ public class EventService {
         this.repository = repository;
     }
 
-    public List<ResponseEventDTO> getAll() {
+    public List<ResponseEventDTO> getAllEvents() {
         List<Event> dbEvents = repository.findAll();
         return dbEvents.stream().map(ev -> EventMapper.toResponseDTO(ev)).toList();
     }
