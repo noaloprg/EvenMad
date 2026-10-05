@@ -39,7 +39,7 @@ public class DetailsMapper {
         if (details instanceof ConcertDetails c) {
             return toResponseConcertDetails(c);
         } else if (details instanceof MatchDetails m)
-            return toResponseMathDetails(m);
+            return toResponseMatchDetails(m);
         else throw new IllegalArgumentException();
     }
 
@@ -52,7 +52,7 @@ public class DetailsMapper {
     }
 
     // Creates responseDTO of matchDetails
-    private static ResponseMatchDetailsDTO toResponseMathDetails(MatchDetails details) {
+    private static ResponseMatchDetailsDTO toResponseMatchDetails(MatchDetails details) {
         return new ResponseMatchDetailsDTO(
                 details.getCompetition(),
                 details.getMatchDay(),
