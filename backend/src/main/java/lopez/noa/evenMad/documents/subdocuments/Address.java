@@ -4,14 +4,16 @@ public class Address {
     private String street;
     private String city;
     private int postalCode;
+    private int number;
 
     public Address() {
     }
 
-    public Address(String street, String city, int postalCode) {
+    public Address(String street, String city, int postalCode, int number) {
         this.street = street;
         this.city = city;
         this.postalCode = postalCode;
+        this.number = number;
     }
 
     public String getStreet() {
@@ -37,4 +39,14 @@ public class Address {
     public void setPostalCode(int postalCode) {
         this.postalCode = postalCode;
     }
+
+
+    public int getNumber() {
+        return number;
+    }
+
+    public void setNumber(int number) {
+        this.number = number;
+    }
+
 }
