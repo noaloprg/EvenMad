@@ -1,5 +1,6 @@
 package lopez.noa.evenMad.services;
 
+import lopez.noa.evenMad.DTO.creation.CreateVenueDTO;
 import lopez.noa.evenMad.DTO.response.ResponseVenueDTO;
 import lopez.noa.evenMad.documents.Venue;
 import lopez.noa.evenMad.mappers.VenueMapper;
@@ -19,8 +20,18 @@ public class VenueService {
     }
 
     // Gets all venues from DB
-    private List<ResponseVenueDTO> getAllVenues() {
+    public List<ResponseVenueDTO> getAllVenues() {
         List<Venue> listVenues = repository.findAll();
         return listVenues.stream().map(v -> VenueMapper.toResponseDTO(v)).toList();
     }
+
+    /**
+     *
+     * @param dto of creation for venue
+     * @return entity because creations are not shown
+     */
+    public Venue createNewVenue(CreateVenueDTO dto){
+        Venue venue = VenueMapper.fromCreateDtoToVenue(dto);
+        return venue;
+    };
 }
