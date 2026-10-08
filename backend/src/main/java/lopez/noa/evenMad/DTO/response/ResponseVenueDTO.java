@@ -1,5 +1,6 @@
 package lopez.noa.evenMad.DTO.response;
 
+import lopez.noa.evenMad.documents.subdocuments.Address;
 import org.springframework.data.mongodb.core.geo.GeoJsonPoint;
 
 import java.util.List;
@@ -11,6 +12,6 @@ public record ResponseVenueDTO(
         int capacity,
         List<String> affectedStreets,
         GeoJsonPoint location,
-        ResponseAddressDTO addressDTO
+        Address address
 ) {
 }
