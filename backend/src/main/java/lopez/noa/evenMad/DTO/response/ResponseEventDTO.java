@@ -1,6 +1,6 @@
 package lopez.noa.evenMad.DTO.response;
 
-import lopez.noa.evenMad.DTO.response.details.ResponseDetailsDTO;
+import lopez.noa.evenMad.documents.subdocuments.Details;
 
 import java.time.LocalDateTime;
 
@@ -12,6 +12,6 @@ public record  ResponseEventDTO (
         LocalDateTime endTime,
         String imageUrl,
         String venueId,
-        ResponseDetailsDTO responseDetails
+        Details details
 ){
 }
