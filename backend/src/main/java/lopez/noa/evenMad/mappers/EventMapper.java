@@ -13,7 +13,7 @@ public class EventMapper {
     public static Event fromCreateDtoToEvent(CreateEventDTO dto) {
         Event event = new Event();
 
-        event.setDetails(DetailsMapper.fromCreateDTOToDetails(dto.createDetails()));
+        event.setDetails(dto.details());
         event.setEndTime(dto.endTime());
         event.setStartTime(dto.startTime());
         event.setImageUrl(dto.imageUrl());
@@ -36,7 +36,7 @@ public class EventMapper {
                 event.getEndTime(),
                 event.getImageUrl(),
                 event.getVenue().getId(),
-                DetailsMapper.toResponseDTO(event.getDetails())
+                event.getDetails()
         );
     }
 }

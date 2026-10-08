@@ -1,6 +1,5 @@
 package lopez.noa.evenMad.mappers;
 
-import lopez.noa.evenMad.DTO.response.ResponseAddressDTO;
 import lopez.noa.evenMad.DTO.creation.CreateVenueDTO;
 import lopez.noa.evenMad.DTO.response.ResponseVenueDTO;
 import lopez.noa.evenMad.documents.Venue;
@@ -31,8 +30,8 @@ public class VenueMapper {
     }
 
     // Transforms an Address into its response DTO
-    private static ResponseAddressDTO getAddressResponseDTO(Address address) {
-        return new ResponseAddressDTO(address.getStreet(), address.getCity(), address.getPostalCode());
+    private static Address getAddressResponseDTO(Address address) {
+        return address;
     }
 
 }
