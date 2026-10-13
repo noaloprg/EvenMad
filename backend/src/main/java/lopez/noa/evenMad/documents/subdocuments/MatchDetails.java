@@ -3,7 +3,7 @@ package lopez.noa.evenMad.documents.subdocuments;
 public class MatchDetails extends Details {
 
     private String competition;
-    private int matchDay;
+    private String matchDay;
     private String homeTeam;
     private String awayTeam;
 
@@ -11,7 +11,7 @@ public class MatchDetails extends Details {
     public MatchDetails() {
     }
 
-    public MatchDetails(String competition, int matchDay, String homeTeam, String awayTeam) {
+    public MatchDetails(String competition, String matchDay, String homeTeam, String awayTeam) {
         this.competition = competition;
         this.matchDay = matchDay;
         this.homeTeam = homeTeam;
@@ -26,11 +26,11 @@ public class MatchDetails extends Details {
         this.competition = competition;
     }
 
-    public int getMatchDay() {
+    public String getMatchDay() {
         return matchDay;
     }
 
-    public void setMatchDay(int matchDay) {
+    public void setMatchDay(String matchDay) {
         this.matchDay = matchDay;
     }
 
