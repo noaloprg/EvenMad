@@ -30,8 +30,10 @@ public class VenueService {
      * @param dto of creation for venue
      * @return entity because creations are not shown
      */
-    public Venue createNewVenue(CreateVenueDTO dto){
-        Venue venue = VenueMapper.fromCreateDtoToVenue(dto);
+    public Venue createNewVenue(CreateVenueDTO dto) {
+        Venue venue = this.repository.insert(VenueMapper.fromCreateDtoToVenue(dto));
         return venue;
-    };
+    }
+
+    ;
 }
