@@ -31,7 +31,7 @@ public class EventService {
      * @return entity because creations are not shown
      */
     public Event createNewEvent(CreateEventDTO dto) {
-        Event event = EventMapper.fromCreateDtoToEvent(dto);
+        Event event = this.repository.insert(EventMapper.fromCreateDtoToEvent(dto));
         return event;
     }
 }
