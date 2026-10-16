@@ -1,4 +1,4 @@
-package lopez.noa.evenMad;
+package lopez.noa.evenMad.configurations;
 
 import lopez.noa.evenMad.DTO.creation.CreateEventDTO;
 import lopez.noa.evenMad.DTO.creation.CreateVenueDTO;
