@@ -17,6 +17,7 @@ public class EventMapper {
         event.setEndTime(dto.endTime());
         event.setStartTime(dto.startTime());
         event.setImageUrl(dto.imageUrl());
+        event.setVenue(dto.venueID());
 
         // Creates title from the details of the event
         event.setTitle(event.getDetails().getTitle());
@@ -35,7 +36,7 @@ public class EventMapper {
                 event.getStartTime(),
                 event.getEndTime(),
                 event.getImageUrl(),
-                event.getVenue().getId(),
+                event.getVenueID(),
                 event.getDetails()
         );
     }

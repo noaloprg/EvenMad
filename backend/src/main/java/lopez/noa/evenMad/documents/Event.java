@@ -9,7 +9,6 @@ import org.springframework.data.mongodb.core.index.IndexDirection;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.index.TextIndexed;
 import org.springframework.data.mongodb.core.mapping.Document;
-import org.springframework.data.mongodb.core.mapping.DocumentReference;
 
 import java.time.LocalDateTime;
 
@@ -38,9 +37,10 @@ public class Event {
 
     private String imageUrl;
 
-    @DocumentReference
+    // saves the VENUE ID as a references
+    // it doesn't use @DocumentReference to simplify a simple referene
     @Indexed
-    private Venue venue;
+    private String venue;
 
     /**
      * Any instance inherited from abstract class {@link Details}
@@ -51,7 +51,7 @@ public class Event {
     public Event() {
     }
 
-    public Event(String id, String title, LocalDateTime startTime, LocalDateTime endTime, String imageUrl, Venue venue, Details details, String slug) {
+    public Event(String id, String title, LocalDateTime startTime, LocalDateTime endTime, String imageUrl, String venue, Details details, String slug) {
         this.id = id;
         this.title = title;
         this.startTime = startTime;
@@ -102,11 +102,11 @@ public class Event {
         this.imageUrl = imageUrl;
     }
 
-    public Venue getVenue() {
+    public String getVenueID() {
         return venue;
     }
 
-    public void setVenue(Venue venue) {
+    public void setVenue(String venue) {
         this.venue = venue;
     }
 
