@@ -1,4 +1,4 @@
-package lopez.noa.evenMad.helpers;
+package lopez.noa.evenMad.utils;
 
 import java.text.Normalizer;
 

@@ -1,4 +1,4 @@
-package lopez.noa.evenMad.helpers;
+package lopez.noa.evenMad.utils;
 
 /**
  * Class for refactoring HTTP messages that the controller is going to send
