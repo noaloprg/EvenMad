@@ -47,7 +47,7 @@ https://www.atleticodemadrid.com/calendario-primer-equipo-femenino
 
 [!NOTE] format in which is displayed and receved dates from HTML
 
-<img src="image-1.png" width=2000/>
+<img src="https://github.com/user-attachments/assets/84a53c01-6056-4a5c-9362-6bdac281dab0" alt="how is displayed content for matches in the web" width=2000/>
 
 ### **Concerts**
 
@@ -73,4 +73,4 @@ https://www.riyadhairmetropolitano.com/programacion
 - Each date is separated by `|`
 - Each data from date is divided by `·`
 
-<img alt="how is displayed content for concerts in the web" src="image.png" height=100 />
+<img alt="how is displayed content for concerts in the web" src="https://github.com/user-attachments/assets/22b35b3c-d6ec-4860-a1cc-e7b52495aea9" height=100 />
