@@ -32,6 +32,8 @@ dependencies {
 
     implementation(platform("me.paulschwarz:spring-dotenv-bom:5.1.0"))
     developmentOnly("me.paulschwarz:springboot4-dotenv")
+
+    implementation("org.jsoup:jsoup:1.18.3")
 }
 
 tasks.withType<Test> {
