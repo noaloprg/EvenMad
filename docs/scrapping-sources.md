@@ -18,27 +18,66 @@ https://www.atleticodemadrid.com/calendario-primer-equipo-femenino
 
 #### **Content**
 
+[!IMPORTANT] The superior label is `<div class="calendar-v2">`
+
+[!NOTE] This structure is per element.
+
 ```html
-<div class="header-calendar">
-  <ul class="marcador">
-    <li class="local">
-      <dl>
-        <dt>Granada</dt>
-      </dl>
-    </li>
+<div class="calendar-item toggler-todos active">
+  <div class="header-calendar ">
+    <div class="competition">
+      <img
+        src="/img/competicion-amis_2023.jpg?v=2"
+        width="50"
+        alt="Amistoso 2026"
+        title="Amistoso"
+      />
+    </div>
+    <a
+      title="1-1"
+      href="/postpartidos/  granada-atletico-de-madrid-femenino-05-08-2026-11-00"
+    >
+      <ul class="marcador">
+        <li class="local">
+          <dl>
+            <dt>Granada</dt>
+            <dd class="logo">
+              <img
+                src="/system/fotos/9/original/granada.png?  1724068533"
+                alt="Granada"
+              />
+            </dd>
+            <dd class="marcador">1</dd>
+          </dl>
+        </li>
+        <li class="visitante">
+          <dl>
+            <dt>Atlético de Madrid Femenino</dt>
+            <dd class="logo">
+              <img
+                src="/system/escudos/919/original/aTLETI.png? 1782085570"
+                alt="Atlético de Madrid Femenino"
+              />
+            </dd>
+            <dd class="marcador">1</dd>
+          </dl>
+        </li>
+      </ul>
+    </a>
+    <div class="info-calendario">
+      <span>Amistoso<i> -</i> </span>
+      <span>Miércoles 8 de agosto<i> -</i> </span>
+      <span class="black">11:00<i> -</i> </span>
+      <span class="black">PFC Costa del Sol</span>
 
-    <li class="visitante">
-      <dl>
-        <dt>Atletico de Madrid Femenino</dt>
-      </dl>
-    </li>
-  </ul>
-
-  <div class="info-calendario">
-    <span>"La liga" </span>
-    <span>"Miercoles 8 de agosto" </span>
-    <span class="black">"11:00" </span>
-    <span class="black">"Riyadh Air Metropolitano" </span>
+      <span class="action-state pre-dir-pos cal-postpartidos"
+        ><a
+          href="/postpartidos/ granada-atletico-de-madrid-femenino-05-08-2026-11-00"
+          title="Resumencal-postpartidos"
+          >Resumen</a
+        ></span
+      >
+    </div>
   </div>
 </div>
 ```
