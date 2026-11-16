@@ -9,6 +9,15 @@ import lopez.noa.evenMad.utils.SlugHelper;
 public class EventMapper {
 
 
+    /**
+     * Creates an object Event from the basic CreateDTO
+     * <p> <br>
+     * {@code event.setTitle(event.getDetails().getTitle())}; -> Creates title from the details of the event
+     * <br> {@code .getTitle()}  is an abstract method from {@link lopez.noa.evenMad.documents.subdocuments.Details} that returns
+     * formated text from detailed atributes
+     * </p>
+     */
+
     // Creates an object Event from the basic CreateDTO
     public static Event fromCreateDtoToEvent(CreateEventDTO dto) {
         Event event = new Event();
@@ -19,11 +28,6 @@ public class EventMapper {
         event.setImageUrl(dto.imageUrl());
         event.setVenue(dto.venueID());
 
-        /**
-         * Creates title from the details of the event
-         * {@code .getTitle()}  is an abstract method from {@link lopez.noa.evenMad.documents.subdocuments.Details} that returns
-         * formated text from detailed atributes
-         */
         event.setTitle(event.getDetails().getTitle());
         // Creates URL slug from the event title using the SlugHelper
         event.setSlug(SlugHelper.toSlug(event.getTitle()));
