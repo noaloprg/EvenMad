@@ -19,7 +19,11 @@ public class EventMapper {
         event.setImageUrl(dto.imageUrl());
         event.setVenue(dto.venueID());
 
-        // Creates title from the details of the event
+        /**
+         * Creates title from the details of the event
+         * {@code .getTitle()}  is an abstract method from {@link lopez.noa.evenMad.documents.subdocuments.Details} that returns
+         * formated text from detailed atributes
+         */
         event.setTitle(event.getDetails().getTitle());
         // Creates URL slug from the event title using the SlugHelper
         event.setSlug(SlugHelper.toSlug(event.getTitle()));

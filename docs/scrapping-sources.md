@@ -70,13 +70,14 @@ https://www.atleticodemadrid.com/calendario-primer-equipo-femenino
       <span class="black">11:00<i> -</i> </span>
       <span class="black">PFC Costa del Sol</span>
 
-      <span class="action-state pre-dir-pos cal-postpartidos"
-        ><a
+      <span class="action-state pre-dir-pos cal-postpartidos">
+        <a
           href="/postpartidos/ granada-atletico-de-madrid-femenino-05-08-2026-11-00"
           title="Resumencal-postpartidos"
-          >Resumen</a
-        ></span
-      >
+        >
+          Resumen
+        </a>
+      </span>
     </div>
   </div>
 </div>
