@@ -3,6 +3,7 @@ package lopez.noa.evenMad.documents.subdocuments;
 public class MatchDetails extends Details {
 
     private String competition;
+    // jornada de la competicion
     private String matchDay;
     private String homeTeam;
     private String awayTeam;
