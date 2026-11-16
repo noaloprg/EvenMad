@@ -28,6 +28,7 @@ public class EventMapper {
         event.setImageUrl(dto.imageUrl());
         event.setVenue(dto.venueID());
 
+        // look JavaDoc of general method
         event.setTitle(event.getDetails().getTitle());
         // Creates URL slug from the event title using the SlugHelper
         event.setSlug(SlugHelper.toSlug(event.getTitle()));
