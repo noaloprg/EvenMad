@@ -35,5 +35,10 @@ public class VenueService {
         return venue;
     }
 
-    ;
+    // looks for a venue through his name
+    public Venue getByName(String name){
+        // it doesn't manage exceptions because we want to reuse in the future for bar searchers, etc...
+        // its managed when it very important (Scrappers)
+        return repository.findByNameIgnoreCase(name.trim());
+    }
 }
