@@ -5,6 +5,9 @@ import org.jsoup.nodes.Document;
 
 import java.io.IOException;
 
+/**
+ * Utility class that centralizes and abstracts HTTP connections logic for scrappers
+ */
 public class ScrapperClient {
 
     // creates a basic connection with a web
