@@ -98,10 +98,18 @@ https://www.riyadhairmetropolitano.com/programacion
 
 #### **Content**
 
+[!IMPORTANT] The superior label is `u-display-contents w-dyn-items`
+
+[!NOTE] This structure is per element.
+
 ```html
-<div class="overlay_texto">
-  <h3 class="overlay_titulo">Imagine dragons</h3>
-  <p class="overlay_fechas">28 · JUNIO · 2025</p>
+<div class="u-display-contents w-dyn-item">
+  <div class="prog_card">
+    <div class="overlay_texto">
+      <h3 class="overlay_titulo">Imagine dragons</h3>
+      <p class="overlay_fechas">28 · JUNIO · 2025</p>
+    </div>
+  </div>
 </div>
 ```
 
