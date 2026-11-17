@@ -48,8 +48,9 @@ public class MetropolitanoScrapper extends BaseScrapper implements EventScrapper
     private VenueService venueService;
     private EventService eventService;
 
-    public MetropolitanoScrapper(VenueService venueService) {
+    public MetropolitanoScrapper(VenueService venueService, EventService eventService) {
         this.venueService = venueService;
+        this.eventService = eventService;
     }
 
     public void manageDocuments() {
@@ -58,7 +59,7 @@ public class MetropolitanoScrapper extends BaseScrapper implements EventScrapper
             Document htmlDoc = ScrapperClient.basicConnection(FEM_TEAM);
 
             // label of each element in the list of matches
-            Elements events = htmlDoc.select("header-calendar");
+            Elements events = htmlDoc.select(".header-calendar");
 
 
         } catch (IOException e) {
