@@ -1,8 +1,11 @@
 package lopez.noa.evenMad.scrappers;
 
 import lopez.noa.evenMad.DTO.creation.CreateEventDTO;
+import lopez.noa.evenMad.constants.AppConstants;
 import lopez.noa.evenMad.documents.Event;
 import lopez.noa.evenMad.documents.Venue;
+import lopez.noa.evenMad.documents.subdocuments.MatchDetails;
+import lopez.noa.evenMad.services.EventService;
 import lopez.noa.evenMad.services.VenueService;
 import lopez.noa.evenMad.utils.DataHelper;
 import lopez.noa.evenMad.utils.ScrapperClient;
@@ -34,27 +37,27 @@ public class MetropolitanoScrapper extends BaseScrapper implements EventScrapper
         return List.of();
     }
 
+    private final String BASIC_URL = "https://www.atleticodemadrid.com";
 
-    private static final String BASIC_URL = "https://www.atleticodemadrid.com";
+    private final String FEM_TEAM = BASIC_URL + "/calendario-primer-equipo-femenino";
 
-    private static final String FEM_TEAM = BASIC_URL + "/calendario-primer-equipo-femenino";
-
-    private static final String MASC_TEAM = BASIC_URL + "/calendario-completo-primer-equipo";
+    private final String MASC_TEAM = BASIC_URL + "/calendario-completo-primer-equipo";
 
     private int currentYear = LocalDateTime.now().getYear();
 
     private VenueService venueService;
+    private EventService eventService;
 
     public MetropolitanoScrapper(VenueService venueService) {
         this.venueService = venueService;
     }
 
-    public static void manageDocuments() {
+    public void manageDocuments() {
         // REMEMBER gestionar la excepcion, mirar si se personaliza
         try {
             Document htmlDoc = ScrapperClient.basicConnection(FEM_TEAM);
 
-            // label of each elemen in the list of matches
+            // label of each element in the list of matches
             Elements events = htmlDoc.select("header-calendar");
 
 
@@ -64,7 +67,7 @@ public class MetropolitanoScrapper extends BaseScrapper implements EventScrapper
     }
 
     // Normalizes data from extraction of matches
-    private static void normalizeMatchesData(Elements matches) {
+    private List<Event> normalizeMatchesData(Elements matches) {
         List<Event> eventsList = new ArrayList<>();
 
 
@@ -73,35 +76,49 @@ public class MetropolitanoScrapper extends BaseScrapper implements EventScrapper
             Elements calendarInfo = el.select(".info-calendario span");
 
             // info of image, that contians info about the competition
-            Element competicionInfo = el.selectFirst(".competition img");
+            Element competitionInfo = el.selectFirst(".competition img");
 
             // dateTime info
             String dateScr = DataHelper.stringCleaner(calendarInfo.get(1).text());
             String timeScr = DataHelper.stringCleaner(calendarInfo.get(2).text());
 
             // venue info
-            String venueScr =  DataHelper.stringCleaner(calendarInfo.get(3).text());
+            String venueScr = DataHelper.stringCleaner(calendarInfo.get(3).text());
 
             // players info
             // gets the text from the label <dt> inside the class container local and visitor
-            String localScr = DataHelper.stringCleaner(el.select(".local dt").text());
-            String visitorScr = DataHelper.stringCleaner(el.select(".visitante dt").text());
+            String homeTeamScr = DataHelper.stringCleaner(el.select(".local dt").text());
+            String awayTeamScr = DataHelper.stringCleaner(el.select(".visitante dt").text());
 
-            if(competicionInfo != null){
-                String competitionScr = DataHelper.stringCleaner(competicionInfo.attr("title"));
+            // checks if the info is not empty and if the venue is the one that has to be
+            if (competitionInfo != null && isThisVenue(venueScr, AppConstants.ESTADIO_METROPOLITANO)) {
+                String competitionScr = DataHelper.stringCleaner(competitionInfo.attr("title"));
 
-//                CreateEventDTO dto = new CreateEventDTO(
-//
-//                ) ;
+                LocalDateTime timeMatch = getDateTimesFromMatches(dateScr, timeScr);
+
+                try {
+                    String idVenue = getVenueId(venueScr);
+
+                    CreateEventDTO dto = new CreateEventDTO(
+                            timeMatch,
+                            timeMatch.plusMinutes(120),
+                            //REMEMBER mirar tema imagenes de donde sacarlas y donde alamcenarlas
+                            "",
+                            idVenue,
+                            new MatchDetails(competitionScr, homeTeamScr, awayTeamScr)
+                    );
+
+                    // creates and adds event to local list
+                    Event newEvent = eventService.createNewEvent(dto);
+                    eventsList.add(newEvent);
+                }
+                // REMEMBER CAMBIAR
+                catch (Exception e) {
+                    e.getStackTrace();
+                }
             }
         }
-    }
-
-    // gets ID from venue through venuService for security
-    private String getVenueId(String name) throws Exception {
-        Venue venue = venueService.getByName(name);
-        if (venue == null) throw new Exception();
-        return venue.getId();
+        return eventsList;
     }
 
     /**
@@ -118,5 +135,12 @@ public class MetropolitanoScrapper extends BaseScrapper implements EventScrapper
         return LocalDateTime.parse(fullScrDate,
                 // indicates language for month that comes in spanish
                 DateTimeFormatter.ofPattern(webPattern, new Locale("es", "ES")));
+    }
+
+    // gets ID from venue through venuService for security
+    private String getVenueId(String name) throws Exception {
+        Venue venue = venueService.getByName(name);
+        if (venue == null) throw new Exception();
+        return venue.getId();
     }
 }
