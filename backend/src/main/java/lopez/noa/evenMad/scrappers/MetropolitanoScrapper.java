@@ -53,14 +53,24 @@ public class MetropolitanoScrapper extends BaseScrapper implements EventScrapper
         this.eventService = eventService;
     }
 
-    public void manageDocuments() {
+    // Manages matches from the venue
+    public void manageMatchDocuments() {
+        // looks in the class calendar-v2 only for the objects from class .calendar-item (for security)
+        String mainSearch = ".calendar-v2 .calendar-item";
+
         // REMEMBER gestionar la excepcion, mirar si se personaliza
         try {
-            Document htmlDoc = ScrapperClient.basicConnection(FEM_TEAM);
+            // documents for matches
+            Document femaleMathcesDoc = ScrapperClient.basicConnection(FEM_TEAM);
+            Document maleMatchesDoc = ScrapperClient.basicConnection(MASC_TEAM);
 
             // label of each element in the list of matches
-            Elements events = htmlDoc.select(".header-calendar");
+            Elements femaleMatches = femaleMathcesDoc.select(mainSearch);
+            Elements maleMatches = maleMatchesDoc.select(mainSearch);
 
+            // saves the matches
+            saveExtractedMatchEvents(femaleMatches);
+            saveExtractedMatchEvents(maleMatches);
 
         } catch (IOException e) {
             System.err.println("Error obtaining the documents from scrapper");
@@ -68,10 +78,9 @@ public class MetropolitanoScrapper extends BaseScrapper implements EventScrapper
     }
 
     // Normalizes data from extraction of matches
-    private List<Event> normalizeMatchesData(Elements matches) {
-        List<Event> eventsList = new ArrayList<>();
+    private void saveExtractedMatchEvents(Elements matches) {
 
-
+        // each element is the object inside -> <div class="calendar-item toggler-todos active">
         for (Element el : matches) {
             // 'span' elements inside a class called 'info-calendario'
             Elements calendarInfo = el.select(".info-calendario span");
@@ -93,8 +102,8 @@ public class MetropolitanoScrapper extends BaseScrapper implements EventScrapper
 
             // checks if the info is not empty and if the venue is the one that has to be
             if (competitionInfo != null && isThisVenue(venueScr, AppConstants.ESTADIO_METROPOLITANO)) {
-                String competitionScr = DataHelper.stringCleaner(competitionInfo.attr("title"));
 
+                String competitionScr = DataHelper.stringCleaner(competitionInfo.attr("title"));
                 LocalDateTime timeMatch = getDateTimesFromMatches(dateScr, timeScr);
 
                 try {
@@ -108,10 +117,8 @@ public class MetropolitanoScrapper extends BaseScrapper implements EventScrapper
                             idVenue,
                             new MatchDetails(competitionScr, homeTeamScr, awayTeamScr)
                     );
-
                     // creates and adds event to local list
-                    Event newEvent = eventService.createNewEvent(dto);
-                    eventsList.add(newEvent);
+                    eventService.createNewEvent(dto);
                 }
                 // REMEMBER CAMBIAR
                 catch (Exception e) {
@@ -119,7 +126,6 @@ public class MetropolitanoScrapper extends BaseScrapper implements EventScrapper
                 }
             }
         }
-        return eventsList;
     }
 
     /**
