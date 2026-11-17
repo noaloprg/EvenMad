@@ -30,13 +30,16 @@ public class VenueService {
      * @param dto of creation for venue
      * @return entity because creations are not shown
      */
-    public Venue createNewVenue(CreateVenueDTO dto) {
-        Venue venue = this.repository.insert(VenueMapper.fromCreateDtoToVenue(dto));
-        return venue;
+    public Venue createNewVenue(CreateVenueDTO dto) throws Exception {
+        boolean exists = this.repository.existsByName(dto.name());
+
+        // REMEMBER CAMBIAR
+        if (exists) throw new Exception();
+        return this.repository.insert(VenueMapper.fromCreateDtoToVenue(dto));
     }
 
     // looks for a venue through his name
-    public Venue getByName(String name){
+    public Venue getByName(String name) {
         // it doesn't manage exceptions because we want to reuse in the future for bar searchers, etc...
         // its managed when it very important (Scrappers)
         return repository.findByNameIgnoreCase(name.trim());

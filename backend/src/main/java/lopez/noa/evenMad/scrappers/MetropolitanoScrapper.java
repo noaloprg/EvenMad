@@ -45,8 +45,8 @@ public class MetropolitanoScrapper extends BaseScrapper implements EventScrapper
 
     private int currentYear = LocalDateTime.now().getYear();
 
-    private VenueService venueService;
-    private EventService eventService;
+    private final VenueService venueService;
+    private final EventService eventService;
 
     public MetropolitanoScrapper(VenueService venueService, EventService eventService) {
         this.venueService = venueService;

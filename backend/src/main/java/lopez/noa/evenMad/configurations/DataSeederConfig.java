@@ -142,7 +142,7 @@ public class DataSeederConfig {
      * @param service
      * @return list of ID venues to referenciate later the events with the venue
      */
-    private static List<String> createVenues(VenueService service) {
+    private static List<String> createVenues(VenueService service) throws Exception{
         Venue venue1 = service.createNewVenue(
                 new CreateVenueDTO(
                         AppConstants.ESTADIO_BERNABEU,
