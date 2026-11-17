@@ -2,6 +2,7 @@ package lopez.noa.evenMad.scrappers;
 
 import lopez.noa.evenMad.DTO.creation.CreateEventDTO;
 import lopez.noa.evenMad.documents.Event;
+import lopez.noa.evenMad.services.VenueService;
 import lopez.noa.evenMad.utils.DataHelper;
 import lopez.noa.evenMad.utils.ScrapperClient;
 import org.jsoup.nodes.Document;
@@ -11,8 +12,10 @@ import org.jsoup.select.Elements;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 /**
  * Label names and anidation of content explained on file:
@@ -26,7 +29,7 @@ public class MetropolitanoScrapper implements EventScrapper {
     }
 
     @Override
-    public List<Event> scrapeEvents() {
+    public List<Event> scraperEvents() {
         return List.of();
     }
 
@@ -37,7 +40,13 @@ public class MetropolitanoScrapper implements EventScrapper {
 
     private static final String MASC_TEAM = BASIC_URL + "/calendario-completo-primer-equipo";
 
-    private static final String ACTUAL_VENUE_NAME = "Riyadh Air Metropolitano";
+    private int currentYear = LocalDateTime.now().getYear();
+
+    private VenueService venueService;
+
+    public MetropolitanoScrapper(VenueService venueService) {
+        this.venueService = venueService;
+    }
 
     public static void manageDocuments() {
         // REMEMBER gestionar la excepcion, mirar si se personaliza
@@ -87,16 +96,19 @@ public class MetropolitanoScrapper implements EventScrapper {
         }
     }
 
-    // validates that the stadium is the one desired
-    private static boolean isThisVenue(String venue) {
-        return venue.toLowerCase().contains(ACTUAL_VENUE_NAME.toLowerCase());
-    }
-
     /**
      * returns de date and time in the correct data format from matcher
-     * @param date format from Scrapper ->
-      */
-    private static LocalDateTime getDateTimesFromMatches(String date, String hour){
-        return null;
+     */
+    private LocalDateTime getDateTimesFromMatches(String date, String hour) {
+        // date example -> 14 de Marzo
+        // hour example -> 11:00
+        String webPattern = "d 'de' MMMM 'de' yyyy HH:mm";
+
+        // completes the scraping date with current year
+        String fullScrDate = String.format("%s de %d %s", date, currentYear, hour);
+
+        return LocalDateTime.parse(fullScrDate,
+                // indicates language for month that comes in spanish
+                DateTimeFormatter.ofPattern(webPattern, new Locale("es", "ES")));
     }
 }
