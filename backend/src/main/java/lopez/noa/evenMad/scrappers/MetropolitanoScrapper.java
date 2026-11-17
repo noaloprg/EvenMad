@@ -2,6 +2,7 @@ package lopez.noa.evenMad.scrappers;
 
 import lopez.noa.evenMad.DTO.creation.CreateEventDTO;
 import lopez.noa.evenMad.documents.Event;
+import lopez.noa.evenMad.documents.Venue;
 import lopez.noa.evenMad.services.VenueService;
 import lopez.noa.evenMad.utils.DataHelper;
 import lopez.noa.evenMad.utils.ScrapperClient;
@@ -21,7 +22,7 @@ import java.util.Locale;
  * Label names and anidation of content explained on file:
  * ./docs/scrapping-sources.md
  */
-public class MetropolitanoScrapper implements EventScrapper {
+public class MetropolitanoScrapper extends BaseScrapper implements EventScrapper {
 
     @Override
     public String getScrapperSourceId() {
@@ -94,6 +95,13 @@ public class MetropolitanoScrapper implements EventScrapper {
 //                ) ;
             }
         }
+    }
+
+    // gets ID from venue through venuService for security
+    private String getVenueId(String name) throws Exception {
+        Venue venue = venueService.getByName(name);
+        if (venue == null) throw new Exception();
+        return venue.getId();
     }
 
     /**
