@@ -12,5 +12,5 @@ public interface EventScrapper {
     String getScrapperSourceId();
 
     // list of events obtained from the scrapper
-    List<Event> scrapeEvents();
+    List<Event> scraperEvents();
 }
