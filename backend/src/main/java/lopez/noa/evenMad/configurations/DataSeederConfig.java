@@ -2,6 +2,7 @@ package lopez.noa.evenMad.configurations;
 
 import lopez.noa.evenMad.DTO.creation.CreateEventDTO;
 import lopez.noa.evenMad.DTO.creation.CreateVenueDTO;
+import lopez.noa.evenMad.constants.AppConstants;
 import lopez.noa.evenMad.documents.Venue;
 import lopez.noa.evenMad.documents.subdocuments.Address;
 import lopez.noa.evenMad.documents.subdocuments.ConcertDetails;
@@ -79,7 +80,6 @@ public class DataSeederConfig {
                         idVenues.get(0),
                         new MatchDetails(
                                 "UEFA Champions League",
-                                "Jornada 11",
                                 "Real Madrid",
                                 "FC Barcelona"
                         )
@@ -95,7 +95,6 @@ public class DataSeederConfig {
                         idVenues.get(0),
                         new MatchDetails(
                                 "UEFA Champions League",
-                                "Jornada 1",
                                 "Real Madrid",
                                 "VfB Stuttgart"
                         )
@@ -129,7 +128,6 @@ public class DataSeederConfig {
                         idVenues.get(1),
                         new MatchDetails(
                                 "La Liga",
-                                "Jornada 8",
                                 "Atletico de Madrid",
                                 "FC Barcelona"
                         )
@@ -147,7 +145,7 @@ public class DataSeederConfig {
     private static List<String> createVenues(VenueService service) {
         Venue venue1 = service.createNewVenue(
                 new CreateVenueDTO(
-                        "Estadio Santiago Bernabeú",
+                        AppConstants.ESTADIO_BERNABEU,
                         83186,
                         List.of("Avenida de Concha Espina", "Paseo de la Castellana",
                                 "Calle de Rafael Salgado", "Calle del Profesor Waksman", "Calle del Padre Damián"),
@@ -158,7 +156,7 @@ public class DataSeederConfig {
 
         Venue venue2 = service.createNewVenue(
                 new CreateVenueDTO(
-                        "Riyadh Air Metropolitano",
+                        AppConstants.ESTADIO_METROPOLITANO,
                         70813,
                         List.of("Avenida de Arcentales", "Avenida de Luis Aragonés",
                                 "Avenida de Canillejas a Vicálvaro", "Calle de Estocolmo", "M-40"),

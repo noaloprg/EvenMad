@@ -10,7 +10,7 @@ public class MatchDetails extends Details {
     public MatchDetails() {
     }
 
-    public MatchDetails(String competition, String matchDay, String homeTeam, String awayTeam) {
+    public MatchDetails(String competition, String homeTeam, String awayTeam) {
         this.competition = competition;
         this.homeTeam = homeTeam;
         this.awayTeam = awayTeam;
