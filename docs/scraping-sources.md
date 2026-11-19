@@ -10,12 +10,6 @@
 https://www.atleticodemadrid.com/calendario-completo-primer-equipo/
 ```
 
-**Femenine**
-
-```
-https://www.atleticodemadrid.com/calendario-primer-equipo-femenino
-```
-
 #### **Content**
 
 [!IMPORTANT] The superior label is `<div class="calendar-v2">`
@@ -101,15 +95,54 @@ https://www.riyadhairmetropolitano.com/programacion
 
 [!IMPORTANT] The superior label is `u-display-contents w-dyn-items`
 
-[!NOTE] This structure is per element.
+[!NOTE] This structure is per element. And attr `data-cat` is the one filtering the web content
 
 ```html
-<div class="u-display-contents w-dyn-item">
-  <div class="prog_card">
-    <div class="overlay_texto">
-      <h3 class="overlay_titulo">Imagine dragons</h3>
-      <p class="overlay_fechas">28 · JUNIO · 2025</p>
+<div role="listitem" class="u-display-contents w-dyn-item">
+  <div data-fecha="Confirmada" data-cat="Música" data-venta="Disponible" class="prog_card">
+    <img
+      src="https://cdn.prod.website-files.com/6a32c8960cdb22588259218f/6a3e08eaa58d546e4cc5b7a3_67863c68607e0198b14bcdee_6734f8d4d74b33198182d003_rollingstones700x700.png"
+      loading="lazy"
+      alt=""
+      class="prog_card-img"
+    />
+    <div class="prog_panel">
+      <div class="overlay_texto">
+        <h3 class="overlay_titulo">The Rolling Stones</h3>
+        <p class="overlay_fechas">1 · JUNIO · 2022</p>
+      </div>
+      <div class="overlay_botones">
+        <div class="button est-btn-disabled is-agotado">
+          COMPRAR
+        </div>
+        <div class="button est-btn-disabled is-prox">COMPRAR</div>
+        <a
+          data-buy="comprar"
+          href="#"
+          class="button button-blanco w-button"
+          >COMPRAR ENTRADAS</a
+        >
+        <div class="button est-btn-disabled is-vip-agotado">
+          COMPRAR ENTRADAS VIP
+        </div>
+        <a
+          data-buy="vip"
+          href="#"
+          class="button button-outline-blanco w-button"
+          >COMPRAR ENTRADAS VIP</a
+        ><a
+          href="/eventos/rolling-stones"
+          class="button button-outline-blanco w-button"
+          >MÁS INFORMACIÓN</a
+        >
+      </div>
     </div>
+    <div class="est-badges">
+      <div class="est-pill is-agotado">Sold-out</div>
+      <div class="est-pill is-prox">Próximamente</div>
+      <div class="est-pill is-tbc">POR CONFIRMAR</div>
+    </div>
+    <div data-ev-slug="1" class="dato-oculto">rolling-stones</div>
   </div>
 </div>
 ```
