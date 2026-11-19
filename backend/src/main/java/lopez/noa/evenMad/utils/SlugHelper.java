@@ -1,7 +1,10 @@
-package lopez.noa.evenMad.helpers;
+package lopez.noa.evenMad.utils;
 
 import java.text.Normalizer;
 
+/**
+ * Utility class that normalizes text ready to make a slut of it
+ */
 public class SlugHelper {
 
     public static String toSlug(String text) {

@@ -4,7 +4,7 @@ import lopez.noa.evenMad.DTO.creation.CreateVenueDTO;
 import lopez.noa.evenMad.DTO.response.ResponseVenueDTO;
 import lopez.noa.evenMad.documents.Venue;
 import lopez.noa.evenMad.documents.subdocuments.Address;
-import lopez.noa.evenMad.helpers.SlugHelper;
+import lopez.noa.evenMad.utils.SlugHelper;
 
 public class VenueMapper {
     // Tranforms Venue into the Response DTO
