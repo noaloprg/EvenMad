@@ -1,4 +1,4 @@
-package lopez.noa.evenMad.utils;
+package lopez.noa.evenMad.scrappers;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -8,7 +8,7 @@ import java.io.IOException;
 /**
  * Utility class that centralizes and abstracts HTTP connections logic for scrappers
  */
-public class ScrapperClient {
+public class ScraperClient {
 
     // creates a basic connection with a web
     public static Document basicConnection(String url) throws IOException {

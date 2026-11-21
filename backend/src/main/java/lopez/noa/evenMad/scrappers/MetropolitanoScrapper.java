@@ -8,7 +8,6 @@ import lopez.noa.evenMad.documents.subdocuments.MatchDetails;
 import lopez.noa.evenMad.services.EventService;
 import lopez.noa.evenMad.services.VenueService;
 import lopez.noa.evenMad.utils.DataHelper;
-import lopez.noa.evenMad.utils.ScrapperClient;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
@@ -59,8 +58,8 @@ public class MetropolitanoScrapper extends BaseScrapper implements EventScrapper
         // REMEMBER gestionar la excepcion, mirar si se personaliza
         try {
             // documents for matches
-            Document femaleMathcesDoc = ScrapperClient.basicConnection(FEM_TEAM);
-            Document maleMatchesDoc = ScrapperClient.basicConnection(MASC_TEAM);
+            Document femaleMathcesDoc = ScraperClient.basicConnection(FEM_TEAM);
+            Document maleMatchesDoc = ScraperClient.basicConnection(MASC_TEAM);
 
             // label of each element in the list of matches
             Elements femaleMatches = femaleMathcesDoc.select(mainSearch);
