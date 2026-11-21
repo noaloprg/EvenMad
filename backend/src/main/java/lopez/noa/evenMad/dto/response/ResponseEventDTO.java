@@ -1,4 +1,4 @@
-package lopez.noa.evenMad.DTO.response;
+package lopez.noa.evenMad.dto.response;
 
 import lopez.noa.evenMad.documents.subdocuments.Details;
 

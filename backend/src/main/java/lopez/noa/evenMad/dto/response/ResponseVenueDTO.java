@@ -1,14 +1,16 @@
-package lopez.noa.evenMad.DTO.creation;
+package lopez.noa.evenMad.dto.response;
 
 import lopez.noa.evenMad.documents.subdocuments.Address;
 import org.springframework.data.mongodb.core.geo.GeoJsonPoint;
 
 import java.util.List;
 
-public record CreateVenueDTO(
+public record ResponseVenueDTO(
+        String id,
         String name,
+        String slug,
         int capacity,
-        List<String> affectedAreas,
+        List<String> affectedStreets,
         GeoJsonPoint location,
         Address address
 ) {

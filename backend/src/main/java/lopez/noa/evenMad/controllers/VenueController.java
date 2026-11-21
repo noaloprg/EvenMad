@@ -2,8 +2,8 @@ package lopez.noa.evenMad.controllers;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
-import lopez.noa.evenMad.DTO.response.ApiResponseDTO;
-import lopez.noa.evenMad.DTO.response.ResponseVenueDTO;
+import lopez.noa.evenMad.dto.response.ApiResponseDTO;
+import lopez.noa.evenMad.dto.response.ResponseVenueDTO;
 import lopez.noa.evenMad.utils.MessagesHelper;
 import lopez.noa.evenMad.services.VenueService;
 import org.springframework.http.ResponseEntity;

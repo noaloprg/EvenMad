@@ -1,7 +1,7 @@
 package lopez.noa.evenMad.configurations;
 
-import lopez.noa.evenMad.DTO.creation.CreateEventDTO;
-import lopez.noa.evenMad.DTO.creation.CreateVenueDTO;
+import lopez.noa.evenMad.dto.creation.CreateEventDTO;
+import lopez.noa.evenMad.dto.creation.CreateVenueDTO;
 import lopez.noa.evenMad.constants.AppConstants;
 import lopez.noa.evenMad.documents.Venue;
 import lopez.noa.evenMad.documents.subdocuments.Address;

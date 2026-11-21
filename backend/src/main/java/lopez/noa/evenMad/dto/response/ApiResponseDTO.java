@@ -1,4 +1,4 @@
-package lopez.noa.evenMad.DTO.response;
+package lopez.noa.evenMad.dto.response;
 
 public class ApiResponseDTO<T> {
     private int status;

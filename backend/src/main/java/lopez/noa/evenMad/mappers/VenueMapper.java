@@ -1,7 +1,7 @@
 package lopez.noa.evenMad.mappers;
 
-import lopez.noa.evenMad.DTO.creation.CreateVenueDTO;
-import lopez.noa.evenMad.DTO.response.ResponseVenueDTO;
+import lopez.noa.evenMad.dto.creation.CreateVenueDTO;
+import lopez.noa.evenMad.dto.response.ResponseVenueDTO;
 import lopez.noa.evenMad.documents.Venue;
 import lopez.noa.evenMad.documents.subdocuments.Address;
 import lopez.noa.evenMad.utils.SlugHelper;

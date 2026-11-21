@@ -1,4 +1,4 @@
-package lopez.noa.evenMad.DTO.creation;
+package lopez.noa.evenMad.dto.creation;
 
 import lopez.noa.evenMad.documents.subdocuments.Details;
 

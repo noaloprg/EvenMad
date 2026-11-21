@@ -1,7 +1,7 @@
 package lopez.noa.evenMad.mappers;
 
-import lopez.noa.evenMad.DTO.creation.CreateEventDTO;
-import lopez.noa.evenMad.DTO.response.ResponseEventDTO;
+import lopez.noa.evenMad.dto.creation.CreateEventDTO;
+import lopez.noa.evenMad.dto.response.ResponseEventDTO;
 import lopez.noa.evenMad.documents.Event;
 import lopez.noa.evenMad.utils.SlugHelper;
 

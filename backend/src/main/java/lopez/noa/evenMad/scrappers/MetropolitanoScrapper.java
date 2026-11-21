@@ -1,6 +1,6 @@
 package lopez.noa.evenMad.scrappers;
 
-import lopez.noa.evenMad.DTO.creation.CreateEventDTO;
+import lopez.noa.evenMad.dto.creation.CreateEventDTO;
 import lopez.noa.evenMad.constants.AppConstants;
 import lopez.noa.evenMad.documents.Event;
 import lopez.noa.evenMad.documents.Venue;
@@ -14,10 +14,8 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 import java.io.IOException;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 

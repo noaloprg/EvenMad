@@ -1,7 +1,7 @@
 package lopez.noa.evenMad.services;
 
-import lopez.noa.evenMad.DTO.creation.CreateEventDTO;
-import lopez.noa.evenMad.DTO.response.ResponseEventDTO;
+import lopez.noa.evenMad.dto.creation.CreateEventDTO;
+import lopez.noa.evenMad.dto.response.ResponseEventDTO;
 import lopez.noa.evenMad.documents.Event;
 import lopez.noa.evenMad.mappers.EventMapper;
 import lopez.noa.evenMad.repositories.EventRepository;
