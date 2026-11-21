@@ -1,4 +1,4 @@
-package lopez.noa.evenMad.scrappers;
+package lopez.noa.evenMad.scrapers;
 
 import lopez.noa.evenMad.dto.creation.CreateEventDTO;
 import lopez.noa.evenMad.constants.AppConstants;

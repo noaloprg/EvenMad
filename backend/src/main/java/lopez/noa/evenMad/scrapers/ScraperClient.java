@@ -1,4 +1,4 @@
-package lopez.noa.evenMad.scrappers;
+package lopez.noa.evenMad.scrapers;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
